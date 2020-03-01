@@ -356,7 +356,7 @@ const states = {
 };
 
 const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
-                        We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
+                        We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and  
                         full coverage health care. Are you willing to accept this offer?`;
 const startQuizMessage = `OK.  I will ask you 10 questions about the United States. `;
 const exitSkillMessage = `Thank you for playing the United States Quiz Game!  Let's play again soon!`;
