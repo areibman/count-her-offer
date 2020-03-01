@@ -7,6 +7,7 @@
 // See this screenshot - https://alexa.design/enabledisplay
 
 const Alexa = require('ask-sdk-core');
+const salaryintent = require('./salaryintent.js');
 
 /* INTENT HANDLERS */
 const LaunchRequestHandler = {
@@ -607,6 +608,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     GratificationHandler,
+    salaryintent.SalaryIntentHandler,
     // QuizHandler,
     // DefinitionHandler,
     // QuizAnswerHandler,
