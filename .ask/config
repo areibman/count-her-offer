@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-StatesQuiz",
             "handler": "index.handler",
-            "revisionId": "6762b557-f7d0-444b-a8df-7ffb5729acb2",
+            "revisionId": "ec80dd02-14a3-44f0-b991-daec73cb59e1",
             "runtime": "nodejs10.x"
           }
         ]
