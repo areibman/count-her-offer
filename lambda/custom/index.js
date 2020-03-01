@@ -73,6 +73,28 @@ const QuizHandler = {
   },
 };
 
+const GratificationHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    console.log("Inside GratificationHandler");
+    console.log(JSON.stringify(request));
+    return request.type === "IntentRequest" &&
+           (request.intent.name === "GratificationIntent" || request.intent.name === "AMAZON.StartOverIntent");
+  },
+  handle(handlerInput) {
+    console.log("Inside GratificationHandler - handle");
+    const attributes = handlerInput.attributesManager.getSessionAttributes();
+    const response = handlerInput.responseBuilder;
+
+    var question = askQuestion(handlerInput);
+    var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to emphasize our interest in the position. <break time="2s"/> Here we go: Hi Chelsea! The team was very excited to meet you and I’d love to share the details of your offer: $125k base, $300k RSUs (over 4 years) and $20k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.';
+
+    return response.speak(speakOutput)
+                   .getResponse();
+  },
+};
+
+
 const DefinitionHandler = {
   canHandle(handlerInput) {
     console.log("Inside DefinitionHandler");
@@ -355,13 +377,16 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
-                        We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
-                        full coverage health care. Are you willing to accept this offer?`;
+const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have many sections to practice. It is important that you go through each one. If you would like to practice a specific one, you may say so, otherwise please start with gratification.`;
+const helpMessage = `The sections in order are 1. Gratification. 2. Role and Company. 3. Non Salary Negotiation. 4. Salary Negotiation.`;
+
+// const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
+//                         We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
+//                         full coverage health care. Are you willing to accept this offer?`;
 const startQuizMessage = `OK.  I will ask you 10 questions about the United States. `;
 const exitSkillMessage = `Thank you for playing the United States Quiz Game!  Let's play again soon!`;
 const repromptSpeech = `Which other state or capital would you like to know about?`;
-const helpMessage = `Do you have any questions for me?`;
+
 const useCardsFlag = true;
 
 /* HELPER FUNCTIONS */
@@ -581,11 +606,12 @@ function shuffle(array) {
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    QuizHandler,
-    DefinitionHandler,
-    QuizAnswerHandler,
-    RepeatHandler,
-    HelpHandler,
+    GratificationHandler,
+    // QuizHandler,
+    // DefinitionHandler,
+    // QuizAnswerHandler,
+    // RepeatHandler,
+    // HelpHandler,
     ExitHandler,
     SessionEndedRequestHandler
   )
