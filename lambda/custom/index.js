@@ -89,7 +89,7 @@ const GratitudeHandler = {
 
     var question = askQuestion(handlerInput);
     randomResponses = [
-    'Hi Chelsea! The team was very excited to meet you and I’d love to share the details of your offer: $125k base, $300k RSUs (over 4 years) and $20k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
+    'Hi Chelsea! I have a great news to share! The team was very excited to meet you and I’d love to share the details of your offer: $60k base, $40k RSUs (over 4 years) and $5k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
     ];
     var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to emphasize our interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
@@ -114,7 +114,7 @@ const SalaryHandler = {
 
     var question = askQuestion(handlerInput);
     randomResponses = [
-      'I’d love to share the details of your offer: $125k base, $300k RSUs (over 4 years) and $20k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
+      'I’d love to share the details of your offer: $75k base, $30k RSUs (over 4 years) and $10k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
     ];
     var speakOutput = 'The goal of this section is to prepare you for Salary Negotiation. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];;
 
@@ -458,8 +458,8 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have many sections to practice. It is important that you go through each one. If you would like to practice a specific one, you may say so, otherwise please start with Gratitude.`;
-const helpMessage = `The sections in order are 1. Gratitude. 2. Role and Company. 3. Non Salary Negotiation. 4. Salary Negotiation.`;
+const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have four sections to practice; Gratidude, Role and Company, Non Salary Negotiation and Salary Negotiation. In each section, I will ask you a question, give a chance to respond and sample response. If you would like to practice a specific section, you may say so, otherwise let's start with Gratitude.`;
+const helpMessage = `At any time, you may say, Gratitude. Role and Company. Non Salary Negotiation. Salary Negotiation.`;
 
 // const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
 //                         We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
