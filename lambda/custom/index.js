@@ -89,9 +89,9 @@ const GratitudeHandler = {
 
     var question = askQuestion(handlerInput);
     randomResponses = [
-    'Hi Chelsea! I have a great news to share! The team was very excited to meet you and I’d love to share the details of your offer: $60k base, $40k RSUs (over 4 years) and $5k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
+    'Hi Chelsea! I have a great news to share! The team was very excited to meet you and I’d love to share the details of your offer. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
     ];
-    var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to you to  emphasize your interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+    var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like you to  emphasize your interest in the position. <break time="2s"/> Here is a scenario: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
                    .reprompt(speakOutput)
@@ -114,9 +114,11 @@ const SalaryHandler = {
 
     var question = askQuestion(handlerInput);
     randomResponses = [
-      'I’d love to share the details of your offer: $75k base, $30k RSUs (over 4 years) and $10k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
+      'Here are the details of your offer: $75k base, $30k RSUs (over 4 years) and $10k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Hi Mike — really excited about the team, loved meeting everyone. In terms of total comp, I"m looking for something closer to 150K. Would you be open to a base of $100k?',
+      'No we cannot offer you asked for. <break time="10s"/><break time="10s"/> Sample Response: How about an additional $20K more in equity, that would get us to $130K and is close to what I am expecting.',
+      'That offer that you sent seems to be too high. <break time="10s"/><break time="10s"/> Sample Response: How close do you think you can come to what I sent between what you are offering and what I am asking for?',
     ];
-    var speakOutput = 'The goal of this section is to prepare you for Salary Negotiation. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];;
+    var speakOutput = 'The goal of this section is to prepare you for Salary Negotiation. <break time="2s"/> Here is a scenario: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];;
 
     return response.speak(speakOutput)
                     .reprompt(speakOutput)
@@ -142,7 +144,7 @@ const RoleAndCompanyHandler = {
     'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yeah I"d like to learn more about my role. What would my day to day responsibilities as outlined by my manager?',
     'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yeah I"d like to learn more about the company? What kind of culture do you think the company has built around inclusiveness and diversity?'
     ];
-    var speakOutput = 'The goal of this section is elaborate on your role and the company fit. We are showing your recruiter of your genuine interest in the role and company culture. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+    var speakOutput = 'The goal of this section is elaborate on your role and the company fit. We are showing your recruiter of your genuine interest in the role and company culture. <break time="2s"/> Here is a scenario: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
                    .reprompt(speakOutput)
@@ -168,7 +170,7 @@ const NonSalaryHandler = {
     randomResponses = [
     'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yes I"d like to discuss my paid vacation. I see that I was only given one week and would like to negotiate an extra 7 days.'
     ];
-    var speakOutput = 'The goal of this section is negotiate non salary items such as healthcare and vacation. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+    var speakOutput = 'The goal of this section is negotiate non salary items such as healthcare and vacation. <break time="2s"/> Here is a scenario: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
                    .reprompt(speakOutput)
@@ -458,7 +460,7 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have four sections to practice; Gratidude, Role and Company, Non Salary Negotiation and Salary Negotiation. In each section, I will ask you a question, give a chance to respond and sample response. If you would like to practice a specific section, you may say so, otherwise let's start with Gratitude.`;
+const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have four sections to practice; Gratitude, Role and Company, Non Salary Negotiation and Salary Negotiation. In each section, I will ask you a question, give a chance to respond and sample response. If you would like to practice a specific section, you may say so, otherwise let's start with Gratitude.`;
 const helpMessage = `At any time, you may say, Gratitude. Role and Company. Non Salary Negotiation. Salary Negotiation.`;
 
 // const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
