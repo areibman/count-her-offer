@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "47eaa6ab6baaf548ce150091e75e0e1e"
+            "eTag": "b5da891fa23374cbd845e2fa7fab153e"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-StatesQuiz",
             "handler": "index.handler",
-            "revisionId": "cde046f2-e655-464e-9536-67dc473366cd",
+            "revisionId": "0af4c7cd-15d6-4117-b9a3-bf1bd3d2dd11",
             "runtime": "nodejs10.x"
           }
         ]
