@@ -6,11 +6,11 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "5de17543db0914e33c286df310c499ae"
+          "eTag": "ddd5972338aa3d85a587e77d4756b308"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "6e53520a711bbf302453ed45b9f2c322"
+            "eTag": "881bc535725d9216550a80374044dac9"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-StatesQuiz",
             "handler": "index.handler",
-            "revisionId": "76aa551e-67ee-4ce3-adee-a49da95775a7",
+            "revisionId": "c603356d-b7c1-4972-90b2-01f7c8385236",
             "runtime": "nodejs10.x"
           }
         ]

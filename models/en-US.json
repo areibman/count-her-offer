@@ -87,10 +87,10 @@
                     "samples": []
                 },
                 {
-                    "name": "GratificationIntent",
+                    "name": "GratitudeIntent",
                     "slots": [],
                     "samples": [
-                        "Gratification"
+                        "Gratitude"
                     ]
                 },
                 {

@@ -74,16 +74,16 @@ const QuizHandler = {
   },
 };
 
-const GratificationHandler = {
+const GratitudeHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
-    console.log("Inside GratificationHandler");
+    console.log("Inside GratitudeHandler");
     console.log(JSON.stringify(request));
     return request.type === "IntentRequest" &&
-           (request.intent.name === "GratificationIntent" || request.intent.name === "AMAZON.StartOverIntent");
+           (request.intent.name === "GratitudeIntent" || request.intent.name === "AMAZON.StartOverIntent");
   },
   handle(handlerInput) {
-    console.log("Inside GratificationHandler - handle");
+    console.log("Inside GratitudeHandler - handle");
     const attributes = handlerInput.attributesManager.getSessionAttributes();
     const response = handlerInput.responseBuilder;
 
@@ -458,8 +458,8 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have many sections to practice. It is important that you go through each one. If you would like to practice a specific one, you may say so, otherwise please start with gratification.`;
-const helpMessage = `The sections in order are 1. Gratification. 2. Role and Company. 3. Non Salary Negotiation. 4. Salary Negotiation.`;
+const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have many sections to practice. It is important that you go through each one. If you would like to practice a specific one, you may say so, otherwise please start with Gratitude.`;
+const helpMessage = `The sections in order are 1. Gratitude. 2. Role and Company. 3. Non Salary Negotiation. 4. Salary Negotiation.`;
 
 // const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
 //                         We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
@@ -687,7 +687,7 @@ function shuffle(array) {
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    GratificationHandler,
+    GratitudeHandler,
     RoleAndCompanyHandler,
     SalaryHandler,
     NonSalaryHandler,
