@@ -113,7 +113,10 @@ const SalaryHandler = {
     const response = handlerInput.responseBuilder;
 
     var question = askQuestion(handlerInput);
-    var speakOutput = 'The goal of this section is to prepare you for Salary Negotiation. <break time="2s"/> Here we go: I’d love to share the details of your offer: $125k base, $300k RSUs (over 4 years) and $20k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.';
+    randomResponses = [
+      'I’d love to share the details of your offer: $125k base, $300k RSUs (over 4 years) and $20k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
+    ];
+    var speakOutput = 'The goal of this section is to prepare you for Salary Negotiation. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];;
 
     return response.speak(speakOutput)
                     .reprompt(speakOutput)
@@ -127,7 +130,7 @@ const RoleAndCompanyHandler = {
     console.log("Inside RoleAndCompanyHandler");
     console.log(JSON.stringify(request));
     return request.type === "IntentRequest" &&
-           (request.intent.name === "GratificationIntent" || request.intent.name === "AMAZON.StartOverIntent");
+           (request.intent.name === "RoleAndCompanyIntent" || request.intent.name === "AMAZON.StartOverIntent");
   },
   handle(handlerInput) {
     console.log("Inside RoleAndCompanyHandler - handle");
@@ -147,6 +150,31 @@ const RoleAndCompanyHandler = {
   },
 };
 
+
+const NonSalaryHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    console.log("Inside NonSalaryHandler");
+    console.log(JSON.stringify(request));
+    return request.type === "IntentRequest" &&
+           (request.intent.name === "NonSalaryIntent" || request.intent.name === "AMAZON.StartOverIntent");
+  },
+  handle(handlerInput) {
+    console.log("Inside NonSalaryHandler - handle");
+    const attributes = handlerInput.attributesManager.getSessionAttributes();
+    const response = handlerInput.responseBuilder;
+
+    var question = askQuestion(handlerInput);
+    randomResponses = [
+    'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yes I"d like to discuss my paid vacation. I see that I was only given one week and would like to negotiate an extra 7 days.'
+    ];
+    var speakOutput = 'The goal of this section is negotiate non salary items such as healthcare and vacation. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+
+    return response.speak(speakOutput)
+                   .reprompt(speakOutput)
+                   .getResponse();
+  },
+};
 
 const DefinitionHandler = {
   canHandle(handlerInput) {
@@ -662,6 +690,7 @@ exports.handler = skillBuilder
     GratificationHandler,
     RoleAndCompanyHandler,
     SalaryHandler,
+    NonSalaryHandler,
     // QuizHandler,
     // DefinitionHandler,
     // QuizAnswerHandler,
