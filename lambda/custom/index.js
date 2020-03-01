@@ -94,7 +94,7 @@ const GratificationHandler = {
     var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to emphasize our interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
-                  .reprompt(speakOutput)
+                   .reprompt(speakOutput)
                    .getResponse();
   },
 };
@@ -117,6 +117,32 @@ const SalaryHandler = {
 
     return response.speak(speakOutput)
                     .reprompt(speakOutput)
+                   .getResponse();
+  },
+};
+
+const RoleAndCompanyHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    console.log("Inside RoleAndCompanyHandler");
+    console.log(JSON.stringify(request));
+    return request.type === "IntentRequest" &&
+           (request.intent.name === "GratificationIntent" || request.intent.name === "AMAZON.StartOverIntent");
+  },
+  handle(handlerInput) {
+    console.log("Inside RoleAndCompanyHandler - handle");
+    const attributes = handlerInput.attributesManager.getSessionAttributes();
+    const response = handlerInput.responseBuilder;
+
+    var question = askQuestion(handlerInput);
+    randomResponses = [
+    'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yeah I"d like to learn more about my role. What would my day to day responsibilities as outlined by my manager?',
+    'Hi Chelsea! Did you have any questions for me? <break time="10s"/><break time="10s"/> Sample Response: Yeah I"d like to learn more about the company? What kind of culture do you think the company has built around inclusiveness and diversity?'
+    ];
+    var speakOutput = 'The goal of this section is elaborate on your role and the company fit. We are showing your recruiter of your genuine interest in the role and company culture. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+
+    return response.speak(speakOutput)
+                   .reprompt(speakOutput)
                    .getResponse();
   },
 };
@@ -634,6 +660,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     GratificationHandler,
+    RoleAndCompanyHandler,
     SalaryHandler,
     // QuizHandler,
     // DefinitionHandler,
