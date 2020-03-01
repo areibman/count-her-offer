@@ -91,7 +91,7 @@ const GratitudeHandler = {
     randomResponses = [
     'Hi Chelsea! I have a great news to share! The team was very excited to meet you and I’d love to share the details of your offer: $60k base, $40k RSUs (over 4 years) and $5k sign on bonus. <break time="10s"/><break time="10s"/> Sample Response: Really excited about the team! Thank you for the offer. I’ll need time to review this, can we speak in a few days? In the meantime, I have a few questions for you.'
     ];
-    var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to emphasize our interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
+    var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to you to  emphasize your interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
                    .reprompt(speakOutput)
