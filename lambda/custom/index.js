@@ -377,18 +377,12 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-<<<<<<< HEAD
-const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
-                        We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and  
-                        full coverage health care. Are you willing to accept this offer?`;
-=======
 const welcomeMessage = `Hi, I am your negotiation companion. I will guide you through how to negotiate an offer. We have many sections to practice. It is important that you go through each one. If you would like to practice a specific one, you may say so, otherwise please start with gratification.`;
 const helpMessage = `The sections in order are 1. Gratification. 2. Role and Company. 3. Non Salary Negotiation. 4. Salary Negotiation.`;
 
 // const welcomeMessage = `Hi Chelsea, I have a great news to share. We would like to extend you an offer. 
 //                         We are offering you base salary of 60,000 dollars, 10 percent annual bonus, and full 
 //                         full coverage health care. Are you willing to accept this offer?`;
->>>>>>> ae221abfe337ec135ad5747b97b1ef29c61c42dc
 const startQuizMessage = `OK.  I will ask you 10 questions about the United States. `;
 const exitSkillMessage = `Thank you for playing the United States Quiz Game!  Let's play again soon!`;
 const repromptSpeech = `Which other state or capital would you like to know about?`;
