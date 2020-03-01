@@ -93,6 +93,7 @@ const GratificationHandler = {
     var speakOutput = 'The goal of this section is to thank the company for extending you an offer. We would like to emphasize our interest in the position. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
+                   .reprompt(speakOutput)
                    .getResponse();
   },
 };
@@ -118,6 +119,7 @@ const RoleAndCompanyHandler = {
     var speakOutput = 'The goal of this section is elaborate on your role and the company fit. We are showing your recruiter of your genuine interest in the role and company culture. <break time="2s"/> Here we go: ' + randomResponses[Math.floor(Math.random()*randomResponses.length)];
 
     return response.speak(speakOutput)
+                   .reprompt(speakOutput)
                    .getResponse();
   },
 };
